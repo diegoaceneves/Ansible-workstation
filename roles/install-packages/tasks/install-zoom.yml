@@ -1,0 +1,17 @@
+- name: Zoom PGP Sign
+  local_action:
+    module: ansible.builtin.rpm_key
+    state: present
+    key: https://zoom.us/linux/download/pubkey
+
+- name: Download Zoom
+  get_url:
+    url: https://zoom.us/client/latest/zoom_x86_64.rpm
+    dest: /tmp/zoom_x86_64.rpm
+  delegate_to: 127.0.0.1
+
+- name: Install Zoom
+  local_action:
+    module: dnf
+    name: "/tmp/zoom_x86_64.rpm"
+    state: present

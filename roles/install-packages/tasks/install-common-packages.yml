@@ -1,0 +1,11 @@
+- name: Upgrade all packages
+  local_action:
+    module: dnf
+    name: "*"
+    state: latest
+
+- name: Install DNF common packages
+  local_action:
+    module: dnf
+    name: "{{ packages }}"
+    state: present

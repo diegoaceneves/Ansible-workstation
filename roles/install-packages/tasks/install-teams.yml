@@ -1,0 +1,15 @@
+- name: Teams PGP Sign
+  local_action:
+    module: ansible.builtin.rpm_key
+    state: present
+    key: https://packages.microsoft.com/keys/microsoft.asc
+
+- name: Create Teams Repo
+  local_action:
+    module: shell echo -e "[teams]\nname=teams\nbaseurl=https://packages.microsoft.com/yumrepos/ms-teams\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/teams.repo
+
+- name: Install MS Teams
+  local_action:
+    module: dnf
+    name: teams
+    state: present

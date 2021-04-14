@@ -1,0 +1,24 @@
+- name: Get Nextcloud Desktop App Version
+  local_action: shell curl https://github.com/nextcloud/desktop/releases/latest 2> /dev/null | cut -d\" -f2 | cut -d\/ -f8 | sed 's/v//'
+  register: nxc_version
+
+- name: Download Nextcloud Desktop App
+  get_url:
+    url: https://github.com/nextcloud/desktop/releases/download/v{{ nxc_version.stdout }}/Nextcloud-{{ nxc_version.stdout }}-x86_64.AppImage
+    dest: "{{homedir}}/.local/bin/nextcloud"
+  delegate_to: 127.0.0.1
+
+- name: Nextcloud Change Permission
+  local_action: file path="{{homedir}}/.local/bin/nextcloud" mode=0755
+
+- name: Copy Nextcloud Icon
+  local_action:
+    module: copy src=nextcloud-icon.png dest="{{homedir}}/.local/share/icons/hicolor/48x48/apps" mode=0644
+      
+- name: Copy Nextcloud .destkop file
+  local_action:
+    module: copy src=nextcloud.desktop dest="{{homedir}}/.local/share/applications" mode=0644
+
+- name: Autostart Nextcloud
+  local_action:
+    module: file src="{{homedir}}/.local/share/applications/nextcloud.desktop" dest="{{homedir}}/.config/autostart/nextcloud.desktop" state=link

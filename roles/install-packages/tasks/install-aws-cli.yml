@@ -1,0 +1,14 @@
+- name: Download AWS CLI
+  get_url:
+    url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+    dest: /tmp/awscliv2.zip
+  delegate_to: 127.0.0.1
+
+- name: Unzip file
+  local_action:
+    module: unarchive
+    src: /tmp/awscliv2.zip
+    dest: /tmp
+
+- name: Install AWS CLI
+  local_action: shell /tmp/aws/install

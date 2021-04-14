@@ -1,0 +1,3 @@
+- name: Configure TimeZone
+  local_action:
+    module: timezone name="{{ tz }}"

@@ -1,0 +1,18 @@
+---
+# vars file for install-packages
+packages:
+ - bash-completion
+ - cockpit
+ - curl
+ - fedora-workstation-repositories
+ - gimp
+ - git
+ - gnome-tweaks
+ - inkscape
+ - seahorse
+ - seahorse-nautilus
+ - terminator
+ - tmux
+ - wine.x86_64
+ - wireshark
+ - vim

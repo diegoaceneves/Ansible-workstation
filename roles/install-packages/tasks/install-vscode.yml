@@ -1,0 +1,17 @@
+- name: VSCode PGP Sign
+  local_action:
+    module: ansible.builtin.rpm_key
+    state: present
+    key: https://packages.microsoft.com/keys/microsoft.asc
+
+- name: Download VSCode
+  get_url:
+    url: https://code.visualstudio.com/sha/download?build=stable&os=linux-rpm-x64
+    dest: /tmp/vscode.rpm
+  delegate_to: 127.0.0.1
+
+- name: Install VSCode
+  local_action:
+    module: dnf
+    name: "/tmp/vscode.rpm"
+    state: present

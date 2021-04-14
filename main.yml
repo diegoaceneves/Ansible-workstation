@@ -1,0 +1,4 @@
+- hosts: local
+  roles:
+  - { role: install-packages, become: yes }
+  - { role: configure-home, become: no }

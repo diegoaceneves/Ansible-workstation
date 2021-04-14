@@ -1,0 +1,6 @@
+---
+# vars file for configure-home
+
+git_remote_repo_dotfiles: https://github.com/diegoaceneves/dotfiles.git
+git_local_repo_dotfiles: "{{ gitdir }}/dotfiles"
+

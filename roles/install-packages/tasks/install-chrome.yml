@@ -1,0 +1,15 @@
+- name: Google PGP Sign
+  local_action:
+    module: ansible.builtin.rpm_key
+    state: present
+    key: https://dl.google.com/linux/linux_signing_key.pub
+
+- name: Create Google Chrome Repo
+  local_action:
+    module: shell echo -e "[google-chrome]\nname=google-chrome - 64-bit\nbaseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64\nenabled=1\ngpgcheck=1\ngpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub" >> /etc/yum.repos.d/google-chrome.repo
+
+- name: Install Google Chrome
+  local_action:
+    module: dnf
+    name: google-chrome-stable
+    state: present
