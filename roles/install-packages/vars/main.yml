@@ -5,10 +5,16 @@ packages:
  - cockpit
  - curl
  - fedora-workstation-repositories
+ - ffmpeg
+ - file-roller-nautilus.x86_64
  - gimp
  - git
+ - gnome-terminal-nautilus.x86_64
  - gnome-tweaks
  - inkscape
+ - nautilus-extensions.x86_64
+ - nautilus-search-tool.x86_64
+ - nextcloud-client-nautilus.x86_64
  - seahorse
  - seahorse-nautilus
  - terminator
