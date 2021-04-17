@@ -1,3 +1,9 @@
 - name: Install docker
   local_action:
     module: shell curl -fsSL https://get.docker.com | bash
+  notify: 
+  - Restart Docker
+
+- name: Add user to group
+  local_action:
+    module: shell usermod -aG docker {{ user }}
