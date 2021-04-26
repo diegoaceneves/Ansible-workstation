@@ -7,18 +7,24 @@ packages:
  - fedora-workstation-repositories
  - ffmpeg
  - file-roller-nautilus.x86_64
+ - filezilla
  - gimp
  - git
  - gnome-terminal-nautilus.x86_64
  - gnome-tweaks
+ - htop
  - inkscape
  - nautilus-extensions.x86_64
  - nautilus-search-tool.x86_64
  - nextcloud-client-nautilus.x86_64
  - seahorse
  - seahorse-nautilus
+ - remmina
  - terminator
  - tmux
+ - transmission
  - wine.x86_64
  - wireshark
  - vim
+ - vlc
+ - vlc-extras
