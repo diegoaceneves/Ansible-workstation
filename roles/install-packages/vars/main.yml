@@ -6,24 +6,28 @@ packages:
  - curl
  - fedora-workstation-repositories
  - ffmpeg
- - file-roller-nautilus.x86_64
+ - file-roller-nautilus
  - filezilla
  - gimp
  - git
- - gnome-terminal-nautilus.x86_64
+ - gnome-terminal-nautilus
  - gnome-tweaks
  - htop
+ - hugo
  - inkscape
- - nautilus-extensions.x86_64
- - nautilus-search-tool.x86_64
- - nextcloud-client-nautilus.x86_64
+ - nautilus-extensions
+ - nautilus-search-tool
+ - NetworkManager-l2tp
+ - NetworkManager-l2tp-gnome
+ - nextcloud-client-nautilus
  - seahorse
  - seahorse-nautilus
  - remmina
  - terminator
  - tmux
  - transmission
- - wine.x86_64
+ - wine
+ - wireguard-tools
  - wireshark
  - vim
  - vlc
