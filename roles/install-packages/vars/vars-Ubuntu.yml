@@ -1,0 +1,16 @@
+---
+# vars file for install-packages on Fedora
+packages:
+ - bash-completion
+ - curl
+ - gimp
+ - git
+ - gnome-terminal-nautilus
+ - gnome-tweaks
+ - htop
+ - nautilus-extensions
+ - nautilus-search-tool
+ - terminator
+ - tmux
+ - vim
+ 
