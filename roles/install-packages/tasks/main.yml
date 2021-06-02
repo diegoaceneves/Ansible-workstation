@@ -4,22 +4,5 @@
 
 - name: Include Plugins
   include: "{{ installPackagesTaskDir }}/install-{{ item }}.yml"
-  with_items: "{{ installPackagesPlugins }}"
-  # loop: 
-  # - aws-cli
-  # - docker
-  # - Fedora-chrome
-  # - nxc-client
-  # - Fedora-teams
-  # - Fedora-vscode
-  # - Fedora-zoom
-  # - nxc-client
+  with_items: "{{ installPackagesPlugins }}
   
-# - include: install-{{ansible_distribution}}-common-packages.yml
-# - include: install-docker.yml
-# - include: install-{{ansible_distribution}}-vscode.yml
-# - include: install-nxc-client.yml
-# - include: install-aws-cli.yml
-# - include: install-{{ansible_distribution}}-chrome.yml
-# - include: install-{{ansible_distribution}}-zoom.yml
-# - include: install-{{ansible_distribution}}-teams.yml
