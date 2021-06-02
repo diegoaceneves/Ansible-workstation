@@ -5,16 +5,16 @@
   local_action:
     module: apt_key
     state: present
-    url: "{{ ms-gpg-key }}"
+    url: "{{ msGpgKey }}"
 
 - name: Create VSCode Repo
   local_action:
-    module: shell echo -e 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+    module: shell echo "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list
 
 - name: Install Microsoft VSCode.
   local_action:
     module: apt
-    deb: code
+    name: code
     update_cache: yes
     install_recommends: yes
     state: present

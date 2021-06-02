@@ -1,20 +1,20 @@
 - name: Include Vars
   include_vars: "vars-{{ansible_distribution}}.yml"
 
-- name: VSCode PGP Sign
+- name: Teams PGP Sign
   local_action:
     module: apt_key
     state: present
-    url: "{{ ms-gpg-key }}"
+    url: "{{ msGpgKey }}"
 
 - name: Create Teams Repo
   local_action:
-    module: shell echo -e 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" > /etc/apt/sources.list.d/teams.list'
+    module: shell echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" > /etc/apt/sources.list.d/teams.list
 
 - name: Install Microsoft Teams.
   local_action:
     module: apt
-    deb: teams
+    name: teams
     update_cache: yes
     install_recommends: yes
     state: present
