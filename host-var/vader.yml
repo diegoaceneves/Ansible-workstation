@@ -1,0 +1,18 @@
+user: diego
+homedir: "/home/{{user}}"
+nxcDir: "{{ homedir }}/Documents/nextcloud/diego"
+sshOrigDir: "{{ nxcDir }}//Keys/SSH"
+awsOrigDir: "{{ nxcDir }}//Keys/AWS"
+gitdir: "{{ homedir }}/Documents/git"
+hostname: vader.diegoneves.eti.br
+tz: America/Bahia
+
+installPackagesTaskDir: roles/install-packages/tasks
+installPackagesPlugins:
+- "aws-cli"
+- "docker"
+- "{{ ansible_distribution}}-chrome"
+- "nxc-client"
+- "{{ ansible_distribution }}-teams"
+- "{{ ansible_distribution }}-vscode"
+- "{{ ansible_distribution }}-zoom"

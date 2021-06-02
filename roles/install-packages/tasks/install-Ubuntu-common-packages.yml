@@ -1,0 +1,14 @@
+- name: Include Vars
+  include_vars: "vars-{{ansible_distribution}}.yml"
+
+- name: Upgrade all packages
+  local_action:
+    module: apt
+    upgrade: dist
+    update_cache: yes
+
+- name: Install APT common packages
+  local_action:
+    module: apt
+    name: "{{ packages }}"
+    state: present

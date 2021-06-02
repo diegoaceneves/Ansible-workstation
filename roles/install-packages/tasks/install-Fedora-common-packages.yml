@@ -1,8 +1,16 @@
+- name: Include Vars
+  include_vars: "vars-{{ansible_distribution}}.yml"
+
 - name: Upgrade all packages
   local_action:
     module: dnf
     name: "*"
     state: latest
+
+- name: Test Repo RPM Fusion is installed
+  stat:
+    path: /etc/yum.repos.d/rpmfusion-nonfree.repo
+  register: fusion_stat_result
 
 - name: Install RPM Fusion Repo
   local_action:
@@ -13,6 +21,7 @@
   with_items:
     - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm
     - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm
+  when: not fusion_stat_result.stat.exists
 
 - name: Install DNF common packages
   local_action:
