@@ -1,14 +1,22 @@
+- name: Test AWS CLI is installed
+  stat:
+    path: /usr/local/bin/aws
+  register: aws_stat_result
+
 - name: Download AWS CLI
   get_url:
     url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
     dest: /tmp/awscliv2.zip
   delegate_to: 127.0.0.1
+  when: not aws_stat_result.stat.exists
 
 - name: Unzip file
   local_action:
     module: unarchive
     src: /tmp/awscliv2.zip
     dest: /tmp
+  when: not aws_stat_result.stat.exists
 
 - name: Install AWS CLI
   local_action: shell /tmp/aws/install
+  when: not aws_stat_result.stat.exists
