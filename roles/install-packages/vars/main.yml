@@ -20,6 +20,8 @@ packages:
  - NetworkManager-l2tp
  - NetworkManager-l2tp-gnome
  - nextcloud-client-nautilus
+ - obs-studio
+ - obs-studio-devel
  - seahorse
  - seahorse-nautilus
  - remmina
