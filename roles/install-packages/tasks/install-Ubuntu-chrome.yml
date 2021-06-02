@@ -1,6 +1,9 @@
+- name: Include Vars
+  include_vars: "vars-{{ansible_distribution}}.yml"
+
 - name: Install Google Chrome.
   local_action:
     module: apt
     deb: "{{ google-chrome-url }}"
     install_recommends: yes
-    state: latest
+    state: present

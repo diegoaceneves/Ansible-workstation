@@ -1,3 +1,6 @@
+- name: Include Vars
+  include_vars: "vars-{{ansible_distribution}}.yml"
+
 - name: VSCode PGP Sign
   local_action:
     module: apt_key
@@ -11,7 +14,7 @@
 - name: Install Microsoft Teams.
   local_action:
     module: apt
-    deb: code
+    deb: teams
     update_cache: yes
     install_recommends: yes
-    state: latest
+    state: present

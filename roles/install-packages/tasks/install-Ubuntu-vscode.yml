@@ -1,17 +1,20 @@
+- name: Include Vars
+  include_vars: "vars-{{ansible_distribution}}.yml"
+
 - name: VSCode PGP Sign
   local_action:
     module: apt_key
     state: present
     url: "{{ ms-gpg-key }}"
 
-- name: Create Teams Repo
+- name: Create VSCode Repo
   local_action:
     module: shell echo -e 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 
-- name: Install Microsoft Teams.
+- name: Install Microsoft VSCode.
   local_action:
     module: apt
     deb: code
     update_cache: yes
     install_recommends: yes
-    state: latest
+    state: present
