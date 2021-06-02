@@ -1,6 +1,11 @@
 ---
 # vars file for install-packages on Ubuntu
+
+google-chrome-url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+ms-gpg-key: https://packages.microsoft.com/keys/microsoft.asc
+
 packages:
+ - apt-transport-https
  - bash-completion
  - curl
  - gimp

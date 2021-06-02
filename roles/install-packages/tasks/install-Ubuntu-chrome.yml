@@ -1,0 +1,6 @@
+- name: Install Google Chrome.
+  local_action:
+    module: apt
+    deb: "{{ google-chrome-url }}"
+    install_recommends: yes
+    state: latest
