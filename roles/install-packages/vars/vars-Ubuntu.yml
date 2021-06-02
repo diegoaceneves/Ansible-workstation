@@ -12,8 +12,8 @@ packages:
  - git
  - gnome-tweaks
  - htop
- - nautilus-extensions
- - nautilus-search-tool
+ - nautilus-image-converter
+ - nautilus-owncloud
  - terminator
  - tmux
  - vim

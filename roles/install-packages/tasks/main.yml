@@ -1,8 +1,6 @@
 ---
 # tasks file for install-packages
-# - include: install-{{ansible_distribution}}-common-packages.yml
-
+- include: install-{{ansible_distribution}}-common-packages.yml
 - name: Include Plugins
   include: "{{ installPackagesTaskDir }}/install-{{ item }}.yml"
-  with_items: "{{ installPackagesPlugins }}
-  
+  with_items: "{{ installPackagesPlugins }}"

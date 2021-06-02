@@ -11,6 +11,15 @@
 - name: Nextcloud Change Permission
   local_action: file path="{{homedir}}/.local/bin/nextcloud" mode=0755
 
+- name: Create a icon directory
+  local_action:
+    module: file
+    path: "{{homedir}}/.local/share/icons/hicolor/48x48/apps"
+    state: directory
+    owner: "{{user}}"
+    group: "{{user}}"
+    mode: '0755'
+
 - name: Copy Nextcloud Icon
   local_action:
     module: copy src=nextcloud-icon.png dest="{{homedir}}/.local/share/icons/hicolor/48x48/apps" mode=0644

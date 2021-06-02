@@ -1,9 +1,15 @@
 - name: Include Vars
   include_vars: "vars-{{ansible_distribution}}.yml"
 
-- name: Install Google Chrome.
+- name: Test Google Chrome is installed
+  stat:
+    path: /usr/bin/google-chrome
+  register: google_stat_result
+
+- name: Install Google Chrome
   local_action:
     module: apt
-    deb: "{{ google-chrome-url }}"
+    deb: "{{ googleChromeUrl }}"
     install_recommends: yes
     state: present
+  when: not google_stat_result.stat.exists
