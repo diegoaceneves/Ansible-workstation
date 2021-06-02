@@ -1,11 +1,10 @@
 ---
-# vars file for install-packages on Fedora
+# vars file for install-packages on Ubuntu
 packages:
  - bash-completion
  - curl
  - gimp
  - git
- - gnome-terminal-nautilus
  - gnome-tweaks
  - htop
  - nautilus-extensions

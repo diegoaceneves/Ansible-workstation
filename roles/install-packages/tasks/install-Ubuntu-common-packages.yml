@@ -4,8 +4,8 @@
 - name: Upgrade all packages
   local_action:
     module: apt
-    name: "*"
-    state: latest
+    upgrade: dist
+    update_cache: yes
 
 - name: Install APT common packages
   local_action:
