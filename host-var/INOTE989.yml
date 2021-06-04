@@ -15,3 +15,4 @@ installPackagesPlugins:
 - "nxc-client"
 - "{{ ansible_distribution }}-teams"
 - "{{ ansible_distribution }}-vscode"
+- "{{ ansible_distribution }}-spotify"

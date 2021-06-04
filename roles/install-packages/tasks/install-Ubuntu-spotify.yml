@@ -1,0 +1,28 @@
+- name: Include Vars
+  include_vars: "vars-{{ansible_distribution}}.yml"
+
+- name: Test Spotify is installed
+  stat:
+    path: /usr/bin/spotify
+  register: spotify_stat_result
+
+- name: Spotify PGP Sign
+  local_action:
+    module: apt_key
+    state: present
+    url: "{{ spotifyGpgKey }}"
+  when: not spotify_stat_result.stat.exists
+
+- name: Create Spotify Repo
+  local_action:
+    module: shell echo "deb http://repository.spotify.com stable non-free" > /etc/apt/sources.list.d/spotify.list
+  when: not spotify_stat_result.stat.exists
+
+- name: Install Spotify
+  local_action:
+    module: apt
+    name: spotify-client
+    update_cache: yes
+    install_recommends: yes
+    state: present
+  when: not spotify_stat_result.stat.exists
