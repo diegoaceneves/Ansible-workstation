@@ -1,10 +1,22 @@
+- name: Test Git Dir
+  stat:
+    path: "{{ gitdir }}"
+  register: gitdir_stat_result
+
+- name: Test Git Local Repo
+  stat:
+    path: "{{ git_local_repo_dotfiles }}"
+  register: gitlocalrepo_stat_result
+
 - name: Create Git Local Path
   local_action:
     module: file path="{{ gitdir }}" state=directory mode=0755
+  when: not gitdir_stat_result.stat.exists
 
 - name: Clone dotfiles git repo
   local_action:
     module: git repo={{ git_remote_repo_dotfiles }} dest={{ git_local_repo_dotfiles }}
+  when: not gitlocalrepo_stat_result.stat.exists
 
 - name: Create Terminator Local Path
   local_action:

@@ -12,6 +12,7 @@ packages:
  - git
  - gnome-terminal-nautilus
  - gnome-tweaks
+ - golang
  - htop
  - hugo
  - inkscape
