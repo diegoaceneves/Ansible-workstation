@@ -1,8 +1,8 @@
 user: diego
 homedir: "/home/{{user}}"
 nxcDir: "{{ homedir }}/Documents/nextcloud/diego"
-sshOrigDir: "{{ nxcDir }}//keys/SSH"
-awsOrigDir: "{{ nxcDir }}//keys/AWS"
+sshOrigDir: "{{ nxcDir }}/keys/SSH"
+awsOrigDir: "{{ nxcDir }}/keys/AWS"
 gitdir: "{{ homedir }}/Documents/git"
 hostname: vader.diegoneves.eti.br
 tz: America/Bahia
