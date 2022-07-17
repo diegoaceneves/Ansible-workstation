@@ -1,0 +1,10 @@
+- name: Test Starship is installed
+  stat:
+    path: /usr/bin/starship
+  register: starship_stat_result
+
+- name: Install starship
+  local_action:
+    module: shell curl https://starship.rs/install.sh -o /tmp/install.sh ; sh /tmp/install.sh -f ; rm /tmp/install.sh
+  become: no
+  when: not starship_stat_result.stat.exists

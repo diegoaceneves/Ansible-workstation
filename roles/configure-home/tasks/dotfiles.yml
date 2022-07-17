@@ -32,3 +32,4 @@
     - { src: 'vimrc', dest: '{{homedir}}/.vimrc' }
     - { src: 'wgetrc', dest: '{{homedir}}/.wgetrc' }
     - { src: 'terminator.config', dest: '{{homedir}}/.config/terminator/config' }
+    - { src: 'starship.toml', dest: '{{homedir}}/.config/starship.toml' }
