@@ -4,18 +4,3 @@
 googleChromeUrl: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 msGpgKey: https://packages.microsoft.com/keys/microsoft.asc
 spotifyGpgKey: https://download.spotify.com/debian/pubkey_0D811D58.gpg
-
-packages:
- - apt-transport-https
- - bash-completion
- - curl
- - gimp
- - git
- - gnome-tweaks
- - htop
- - nautilus-image-converter
- - nautilus-owncloud
- - terminator
- - tmux
- - vim
- 

@@ -1,6 +1,6 @@
 user: diego
 homedir: "/home/{{user}}"
-nxcDir: "{{ homedir }}/Documents/nextcloud/diego"
+nxcDir: "{{ homedir }}/Documents/Nextcloud/diego"
 sshOrigDir: "{{ nxcDir }}/keys/SSH"
 awsOrigDir: "{{ nxcDir }}/keys/AWS"
 gitdir: "{{ homedir }}/Documents/git"
@@ -9,10 +9,38 @@ tz: America/Bahia
 
 installPackagesTaskDir: roles/install-packages/tasks
 installPackagesPlugins:
-- "aws-cli"
 - "docker"
+- "starship"
 - "{{ ansible_distribution}}-chrome"
-- "nxc-client"
-- "{{ ansible_distribution }}-teams"
 - "{{ ansible_distribution }}-vscode"
-- "{{ ansible_distribution }}-zoom"
+
+packages:
+ - bash-completion
+ - cockpit
+ - curl
+ - fedora-workstation-repositories
+ - ffmpeg
+ - file-roller-nautilus
+ - gimp
+ - git
+ - gnome-terminal-nautilus
+ - gnome-tweaks
+ - golang
+ - htop
+ - hugo
+ - inkscape
+ - nautilus-extensions
+ - nautilus-search-tool
+ - nextcloud-client-nautilus
+ - obs-studio
+ - obs-studio-devel
+ - seahorse
+ - seahorse-nautilus
+ - terminator
+ - tmux
+ - transmission
+ - wine
+ - wireshark
+ - vim
+ - vlc
+ - vlc-extras

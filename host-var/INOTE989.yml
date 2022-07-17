@@ -9,10 +9,22 @@ tz: America/Bahia
 
 installPackagesTaskDir: roles/install-packages/tasks
 installPackagesPlugins:
-- "aws-cli"
 - "docker"
 - "{{ ansible_distribution}}-chrome"
 - "nxc-client"
 - "{{ ansible_distribution }}-teams"
 - "{{ ansible_distribution }}-vscode"
-- "{{ ansible_distribution }}-spotify"
+
+packages:
+ - apt-transport-https
+ - bash-completion
+ - curl
+ - gimp
+ - git
+ - gnome-tweaks
+ - htop
+ - nautilus-image-converter
+ - nautilus-owncloud
+ - terminator
+ - tmux
+ - vim
